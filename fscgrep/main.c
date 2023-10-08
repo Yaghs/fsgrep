@@ -17,23 +17,18 @@
  * 
  */
 int main(int argc, char** argv) {
-    if (argc != 3) {
-        fprintf(stderr, "Usage: %s <searchterm> <filename>\n", argv[0]);
-        return 1; // Return an error code to indicate incorrect usage
-    }
-
+   
     const char* searchterm = argv[1];
     const char* filename = argv[2];
-
+    
+    
     FILE *fp = fopen(filename, "r");
     if (fp == NULL) {
-        fprintf(stderr, "Cannot open file: %s\n", filename);
-        return 2; // Return an error code to indicate file open failure
+        fprintf(stderr, "Cannot open file: %s\n", filename); 
     }
-
+    
     fsgrep(filename, searchterm);
     fclose(fp);
-
     return 0; // Return 0 to indicate successful execution
 }
 
