@@ -51,12 +51,14 @@ CCADMIN=CCadmin
 CC = gcc
 CFLAGS = -Wall -Werror
 
-all: fsgrep.c main.c
-fsmore: fsmore.c main.c
-	$(CC) $(CFLAGS) -o fsgrep.c main.c
+all: fsgrep
+
+fsgrep: fsgrep.c main.c
+	$(CC) $(CFLAGS) -o fsgrep fsgrep.c main.c
 
 clean:
 	rm -f fsgrep
+
 
 # build
 build: .build-post
